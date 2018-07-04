@@ -1,0 +1,76 @@
+<div class="nav-side-menu">
+    <div class="menu-list">
+        <ul id="menu-content" class="menu-content out">
+            <li *ngFor="let type of types" (click)="updateSelectedType(type)">
+                {{type}}
+            </li>
+        </ul>
+    </div>
+</div>
+
+<div class="main-content">
+    <button type="button" class="btn" id="title" (click)="loadData()">
+        load data
+    </button>
+    <button type="button" class="btn btn-primary" id="add-btn" data-toggle="modal" data-target="#assetmodal" (click)="enableSaveMode()">
+        Submit Transaction
+    </button>
+    <div>
+        <table id="example" class="table table-striped table-bordered" style="width:100%">
+            <thead>
+                <tr>
+                    <th>tradingSymbol</th>
+                    <th>name</th>
+                    <th>description</th>
+                    <th>price</th>
+                    <th>type</th>
+                    <th>owner</th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let asset of selectedAssets">
+                    <td>{{asset.tradingSymbol}}</td>
+                    <td>{{asset.name}}</td>
+                    <td>{{asset.description}}</td>
+                    <td>{{asset.value}}</td>
+                    <td>{{asset.type}}</td>
+                    <td>{{asset.owner}}</td>
+                    <td>
+                        <button type="button" class="btn btn-danger" (click)="removeAsset($event, asset)">x</button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <!-- The Modal -->
+    <div class="modal fade" id="assetmodal">
+        <div class="modal-dialog">
+            <div class="modal-content">
+
+                <!-- Modal Header -->
+                <div class="modal-header">
+                    <h4 class="modal-title">Asset Operation</h4>
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                </div>
+
+                <form [formGroup]="sampleForm" (ngSubmit)="save()">
+                    <!-- Modal body -->
+                    <div class="modal-body">
+                        count
+                        <input class="form-control form-control-sm" type="text" formControlName="count" placeholder="count" /> type
+                        <input class="form-control form-control-sm" type="text" formControlName="type" placeholder="type" /> ownerId
+                        <input class="form-control form-control-sm" type="text" formControlName="ownerId" placeholder="ownerId" />
+                    </div>
+
+                    <!-- Modal footer -->
+                    <div class="modal-footer">
+                        <button type="submit" class="btn btn-primary" (click)="save()" data-dismiss="modal">Save</button>
+                        <button type="button" class="btn btn-danger" data-dismiss="modal">close</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,27 @@
+
+    <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
+        <!-- Brand -->
+        <a class="navbar-brand" routerLink="/home">Home</a>
+        
+        <!-- Links -->
+        <ul class="navbar-nav">
+            <li class="nav-item">
+                <a class="nav-link" routerLink="dashboard">Dashboard</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" routerLink="asset" role="button">Assets</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" routerLink="employee" role="button">Users</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link"  href="#" (click)="logout()" role="button">logout</a>
+            </li>
+        </ul>
+        
+    </nav>
+    <div [hidden]="isAuthenticated()">
+        To be able to sign transaction you make please upload your business network card<br/>
+        <file-upload></file-upload>
+    </div>
+    <router-outlet></router-outlet>

@@ -1,0 +1,9 @@
+applications:
+  - instances: 1
+    timeout: 280
+    name: StockNetwork
+    buildpack: sdk-for-nodejs
+    stack: cflinuxfs2
+    command: npm start
+    memory: 2G
+    domain: eu-de.mybluemix.net

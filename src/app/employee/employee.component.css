@@ -1,0 +1,12 @@
+.btn-warning{
+    margin-right: 1em;
+}
+
+#add-btn{
+    float: right;
+}
+
+#title{
+    float: left;
+    cursor: initial;
+}

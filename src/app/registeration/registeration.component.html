@@ -1,0 +1,14 @@
+<body ng-app="myApp" class="bg">
+  <div class="login-page">
+    <div class="form">
+      <form class="register-form" (ngSubmit)="register()" #registerationForm="ngForm">
+        <input type="text" placeholder="firstName" ngModel name="firstName"/>
+        <input type="text" placeholder="lastName" ngModel name="lastName"/>
+        <input type="password" placeholder="password" ngModel name="password"/>
+        <input type="Number" placeholder="balance" ngModel name="balance"/>
+        <input type="submit" value="Register" [disabled]="!registerationForm.valid"/>
+        <p class="message">Already registered? <a routerLink="/login">Sign In</a></p>
+      </form>
+    </div>
+  </div>
+</body>
